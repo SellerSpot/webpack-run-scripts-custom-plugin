@@ -4,7 +4,7 @@
 
 ## To install
 
-`npm i @sellerspot/webpack-run-scripts-custom-plugin`
+`npm i -D @sellerspot/webpack-run-scripts-custom-plugin`
 
 ## usage
 
