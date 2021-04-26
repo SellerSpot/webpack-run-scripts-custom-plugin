@@ -1,3 +1,5 @@
+[![Sellerspot npm package publish](https://github.com/SellerSpot/webpack-run-scripts-custom-plugin/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/SellerSpot/webpack-run-scripts-custom-plugin/actions/workflows/npm-publish.yml)
+
 # Webpack Run Scripts Custom Plugin
 
 ## Development flow
