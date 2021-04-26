@@ -13,7 +13,6 @@ const webpackConfiguration = (env: {
         resolve: {
             extensions: ['.ts', '.tsx', 'js'],
         },
-        externals: {},
         node: {
             child_process: 'empty',
         },
