@@ -2,6 +2,22 @@
 
 # Webpack Run Scripts Custom Plugin
 
+## To install
+
+`npm i @sellerspot/webpack-run-scripts-custom-plugin`
+
+## usage
+
+```typescript
+plugins: [
+    new WebpackCustomRunScriptsPlugin({
+        command: '<- your command ->',
+        allowOnException?: boolean;
+        allownOnError?: boolean;
+    })
+];
+```
+
 ## Development flow
 
 -   `npm run dev`

@@ -3,7 +3,7 @@ import childProcess from 'child_process';
 
 export interface IWebpackCustomRunScriptsPluginProps {
     command?: string;
-    allowOnException?: boolean;
+    allowOnWarning?: boolean;
     allownOnError?: boolean;
 }
 
@@ -16,10 +16,10 @@ export class WebpackCustomRunScriptsPlugin {
 
     apply(compiler: Compiler): void {
         compiler.hooks.afterEmit.tap('Hello World Plugin', (stats) => {
-            const { command, allowOnException, allownOnError } = this.options;
+            const { command, allowOnWarning, allownOnError } = this.options;
             const hasException =
-                (stats.getStats().hasErrors() && !allowOnException) ||
-                (stats.getStats().hasWarnings() && !allownOnError);
+                (stats.getStats().hasErrors() && !allownOnError) ||
+                (stats.getStats().hasWarnings() && !allowOnWarning);
             if (!hasException) {
                 const child = childProcess.exec(command);
                 process.stdout.write('Command Execution Started!');
