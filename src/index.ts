@@ -22,17 +22,15 @@ export class WebpackCustomRunScriptsPlugin {
                 (stats.getStats().hasWarnings() && !allowOnWarning);
             if (!hasException) {
                 const child = childProcess.exec(command);
-                process.stdout.write('Command Execution Started!');
+                console.log('Command Execution Started!');
                 child.stdout.on('data', function (data) {
-                    process.stdout.write(data);
+                    console.log(data);
                 });
                 child.stderr.on('data', function (data) {
-                    process.stderr.write(data);
+                    console.error(data);
                 });
             } else {
-                process.stdout.write(
-                    'Command Execution aborted push aborted please fix errors and warnings!',
-                );
+                console.error('Command Execution aborted, please fix errors and warnings!');
             }
         });
     }

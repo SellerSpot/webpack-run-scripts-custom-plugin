@@ -16,6 +16,9 @@ const webpackConfiguration = (env: {
         node: {
             child_process: 'empty',
         },
+        externals: {
+            child_process: 'child_process',
+        },
         output: {
             path: path.join(__dirname, '/dist'),
             filename: 'index.js',
