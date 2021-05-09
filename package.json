@@ -1,6 +1,6 @@
 {
     "name": "@sellerspot/webpack-run-scripts-custom-plugin",
-    "version": "1.17.3",
+    "version": "1.18.0",
     "description": "Custom plugin for running scripts on successfull compilation and file emition",
     "main": "dist/index.js",
     "scripts": {
