@@ -23,22 +23,8 @@
         "sellerspot",
         "react-webpack-run-scripts-custom-plugin"
     ],
-    "author": "ThayalanGR",
-    "contributors": [
-        {
-            "name": "ThayalanGR",
-            "email": "grthayalan18@gmail.com",
-            "url": "https://github.com/ThayalanGR"
-        }
-    ],
+    "author": "Sellerspot",
     "license": "ISC",
-    "lint-staged": {
-        "*.{ts,tsx,scss}": [
-            "prettier --write",
-            "git add"
-        ],
-        "!(*webpack.config).{ts,tsx}": "eslint --fix --max-warnings 0"
-    },
     "devDependencies": {
         "@types/node": "^14.14.14",
         "@types/webpack": "^4.41.25",
