@@ -18,6 +18,8 @@ plugins: [
 ];
 ```
 
+> Note: use `nodemon --signal SIGHUP` when you are passing nodemon as the command.
+
 ## Development flow
 
 -   `npm run dev`
