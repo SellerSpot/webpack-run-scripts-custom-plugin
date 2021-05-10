@@ -19,11 +19,13 @@ export class WebpackCustomRunScriptsPlugin {
 
     apply(compiler: Compiler): void {
         compiler.hooks.afterEmit.tap('Webpack Custom Run Scripts Plugin', async (stats) => {
-            await this.processKillHandler(WebpackCustomRunScriptsPlugin.previousProcessId);
+            this.processKillHandler(WebpackCustomRunScriptsPlugin.previousProcessId);
+
             const { command, allowOnWarning, allownOnError } = this.options;
             const hasException =
                 (stats.getStats().hasErrors() && !allownOnError) ||
                 (stats.getStats().hasWarnings() && !allowOnWarning);
+
             if (!hasException) {
                 const child = childProcess.spawn(command, {
                     detached: true,
@@ -32,6 +34,11 @@ export class WebpackCustomRunScriptsPlugin {
                 });
 
                 WebpackCustomRunScriptsPlugin.previousProcessId = child.pid;
+
+                child.on('exit', () => this.processKillHandler(child.pid));
+                child.on('error', () => this.processKillHandler(child.pid));
+                child.on('disconnect', () => this.processKillHandler(child.pid));
+                child.on('close', () => this.processKillHandler(child.pid));
 
                 const decoder = new StringDecoder('utf8');
 
@@ -49,10 +56,10 @@ export class WebpackCustomRunScriptsPlugin {
         });
     }
 
-    private async processKillHandler(pid: number): Promise<void> {
+    private processKillHandler(pid: number): void {
         try {
+            console.log('killing previous processes gracefully');
             process.kill(-pid);
-            // await this.introduceDelay();
         } catch (error) {}
     }
 }
