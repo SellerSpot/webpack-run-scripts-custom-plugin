@@ -55,7 +55,5 @@
         "url": "https://github.com/SellerSpot/webpack-run-scripts-custom-plugin/issues"
     },
     "homepage": "https://github.com/SellerSpot/webpack-run-scripts-custom-plugin#readme",
-    "dependencies": {
-        "child_process": "^1.0.2"
-    }
+    "dependencies": {}
 }
