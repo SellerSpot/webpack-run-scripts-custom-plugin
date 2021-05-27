@@ -28,7 +28,7 @@ export class WebpackCustomRunScriptsPlugin {
 
             if (!hasException) {
                 const child = childProcess.spawn(command, {
-                    detached: true,
+                    detached: false,
                     stdio: 'pipe',
                     shell: true,
                 });
